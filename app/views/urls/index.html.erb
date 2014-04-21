@@ -1,0 +1,12 @@
+<h2>Fancy Url Index</h2>
+<ul>
+  <% @urls.each do |url| %>
+  <li>Original URL: <%=url.long_url %></li>
+  <li>Short url: <%= link_to "localhost:3000/#{url.short_url}", url.short_url, :target => '_blank' %></li>
+  <li><%= link_to "delete", url, method: :delete, data: {confirm: "Are you sure?"} %></li>
+  <li>Click Count: <%= url.click_count %></li><br>
+  <% end %>
+</ul>
+<br>
+
+<%= link_to 'Shorten New Url', new_url_path %>
